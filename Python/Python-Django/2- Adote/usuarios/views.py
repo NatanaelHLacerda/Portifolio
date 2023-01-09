@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 
 def cadastro(request):
-    return HttpResponse('Olá, estou em cadastro')
+    return render(request, 'cadastro.html')
