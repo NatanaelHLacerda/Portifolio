@@ -55,9 +55,7 @@ def logar(request):
         
         if user is not None:
             login(request, user)
-            return redirect('/divulgar/novo_pet')
-
-            
+            return redirect('/divulgar/novo_pet')        
         else:
             messages.add_message(request, constants.ERROR, 'Usuário ou senha incorreto!')
             return render(request, 'login.html')
