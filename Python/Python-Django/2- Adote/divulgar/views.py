@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Tag, Raca
+from .models import Tag, Raca, Pet
 
 
 @login_required
@@ -16,7 +16,32 @@ def novo_pet(request):
         descricao = request.POST.get('descricao') 
         estado = request.POST.get('estado')
         cidade = request.POST.get('cidade')
+        telefone = request.POST.get('telefone')
         tags = request.POST.getlist('tags')
         raca = request.POST.get('raca')
+
+        # Validação <--- Dever de casa
+
+        pet = Pet(
+            usuario=request.user,
+            foto=foto,
+            nome=nome,
+            descricao=descricao,
+            estado=estado,
+            cidade=cidade,
+            telefone=telefone,
+            raca_id=raca
+        )
+
+        pet.save()
+
+        for tag_id in tags:
+            tag = Tag.objects.get(id=tag_id)
+            pet.tags.add(tag)
+            
+        pet.save()
+
+        return HttpResponse("Tá tudo certo, continua brother!")
+
 
 
