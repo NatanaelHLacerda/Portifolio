@@ -8,6 +8,15 @@ from .models import Tag, Raca
 def novo_pet(request):
     if request.method == "GET":
         tags = Tag.objects.all()
-        return render(request, 'novo_pet.html', {'nome': 'Caio Sampaio'}) 
+        racas = Raca.objects.all()
+        return render(request, 'novo_pet.html', {'tags': tags, 'racas': racas})
+    elif request.method == "POST":
+        foto = request.FILES.get('foto')
+        nome = request.POST.get('nome')
+        descricao = request.POST.get('descricao') 
+        estado = request.POST.get('estado')
+        cidade = request.POST.get('cidade')
+        tags = request.POST.getlist('tags')
+        raca = request.POST.get('raca')
 
 
