@@ -21,7 +21,7 @@ def novo_pet(request):
         raca = request.POST.get('raca')
 
         # Validação <--- Dever de casa
-
+        
         pet = Pet(
             usuario=request.user,
             foto=foto,
@@ -38,10 +38,15 @@ def novo_pet(request):
         for tag_id in tags:
             tag = Tag.objects.get(id=tag_id)
             pet.tags.add(tag)
-            
         pet.save()
-
+        
         return HttpResponse("Tá tudo certo, continua brother!")
 
+
+@login_required
+def seus_pets(request):
+    if request.method == "GET":
+        pets = Pet.objects.filter(usuario=request.user)
+        return render(request, 'seus_pets.html', {'pets':pets})
 
 
