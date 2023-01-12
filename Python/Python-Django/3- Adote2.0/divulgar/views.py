@@ -1,14 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Tag, Raca, Pet
+from django.contrib import messages
+from django.contrib.messages import constants
 
 @login_required
 def novo_pet(request):
-    if request.method=="GET":
+    if request.method == "GET":
         tags = Tag.objects.all()
         racas = Raca.objects.all()
         return render(request, 'novo_pet.html', {'tags': tags, 'racas': racas})
-    elif request.method=="POST":
+    elif request.method == "POST":
         foto = request.FILES.get('foto')
         nome = request.POST.get('nome')
         descricao = request.POST.get('descricao')
@@ -34,7 +36,28 @@ def novo_pet(request):
         pet.save()
 
         for tag_id in tags:
-            tag=Tag.objects.GET(id=tag_id)
+            tag=Tag.objects.get(id=tag_id)
             pet.tags.add(tag)
 
-        pet.save()       
+        pet.save()
+        return redirect('/divulgar/seus_pets')
+
+
+@login_required
+def seus_pets(request):
+    if request.method == "GET":
+        pets = Pet.objects.filter(usuario=request.user)
+        return render(request, 'seus_pets.html', {'pets':pets})
+
+
+def remover_pet(request, id):
+    pet = Pet.objects.get(id=id)
+    pet.delete()
+
+    if not pet.usuario == request.user:
+        messages.add_message(request, constants.ERROR, 'Você não possui permissão para fazer isso!')
+        return redirect('/divulgar/seus_pets')
+    messages.add_message(request, constants.SUCCESS, 'Pet deletado com sucesso!')
+    return redirect('/divulgar/seus_pets')
+
+
