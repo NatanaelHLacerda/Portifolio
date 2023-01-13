@@ -1,5 +1,31 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
+from django.contrib.auth.decorators import login_required
+from divulgar .models import Pet, Raca
 
+@login_required
 def listar_pets(request):
     if request.method == "GET":
-        return render(request, 'listar_pets.html')
+
+        pets = Pet.objects.filter(status='P')
+        racas = Raca.objects.all()
+
+        cidade = request.GET.get('cidade')
+        raca_filter = request.GET.get('raca')
+
+        if cidade:
+            pets = pets.filter(cidade__icontains=cidade)
+
+        if raca_filter:
+            pets = pets.filter(raca__id=raca_filter)
+            raca_filter = Raca.objects.get(id=raca_filter)
+            
+        return render(request, 'listar_pets.html', {'racas': racas, 'pets': pets, 'cidade': cidade, 'raca_filter': raca_filter})
+
+
+
+"""
+        
+        cidade = request.GET.get('cidade')
+        raca_filter = request.GET.get('raca')
+
+        return render(request, 'listar_pets.html', {'pets': pets, 'racas': racas})"""
