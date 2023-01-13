@@ -1,0 +1,12 @@
+# Sistema de gerenciamento para doação/adoção de Pets #
+
+Url: http://127.0.0.1:8000
+Mapeamento:
+
+$ Cadastro       -> http://127.0.0.1:8000/auth/cadastro       usuarios/templates/cadastro.html
+$ Login          -> http://127.0.0.1:8000/auth/login          usuarios/templates/login.html
+$ Quero Divulgar -> http://127.0.0.1:8000/divulgar/novo_pet   divulgar/templates/novo_pet.html
+$ Meus Pets      -> http://127.0.0.1:8000/divulgar/seus_pets  divulgar/templates/seus_pets.html
+
+% Adotar         -> http://127.0.0.1:8000/adotar              adotar/templater/listar_pets.html
+
