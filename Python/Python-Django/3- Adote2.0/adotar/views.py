@@ -23,9 +23,3 @@ def listar_pets(request):
 
 
 
-"""
-        
-        cidade = request.GET.get('cidade')
-        raca_filter = request.GET.get('raca')
-
-        return render(request, 'listar_pets.html', {'pets': pets, 'racas': racas})"""

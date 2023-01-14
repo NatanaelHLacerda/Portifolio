@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Tag, Raca, Pet
 from django.contrib import messages
 from django.contrib.messages import constants
+from adotar.models import PedidoAdocao
+from datetime import datetime
 
 @login_required
 def novo_pet(request):
@@ -59,5 +61,24 @@ def remover_pet(request, id):
         return redirect('/divulgar/seus_pets')
     messages.add_message(request, constants.SUCCESS, 'Pet deletado com sucesso!')
     return redirect('/divulgar/seus_pets')
+
+
+def ver_pet(request, id):
+    if request.method == "GET":
+        pet = Pet.objects.get(id=id)
+        return render(request, 'ver_pet.html', {'pet': pet})
+
+
+def pedido_adocao(request, id_pet):
+    pet = Pet.objects.filter(id=id_pet).filter(status="P")
+
+    pedido = PedidoAdocao(pet=pet.first(),
+                          usuario=request.user,
+                          data=datetime.now())
+
+    pedido.save()
+    messages.add_message(request, constants.SUCCESS, 'Pedido de adoção realizado com sucesso!')
+    return redirect('/adotar')
+
 
 
