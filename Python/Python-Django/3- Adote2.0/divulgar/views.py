@@ -81,4 +81,10 @@ def pedido_adocao(request, id_pet):
     return redirect('/adotar')
 
 
+def ver_pedido_adocao(request):
+    if request.method == "GET":
+        pedidos = PedidoAdocao.objects.filter(usuario=request.user).filter(status="AG")
+        return render(request, 'ver_pedido_adocao.html', {'pedidos': pedidos})
+
+
 
