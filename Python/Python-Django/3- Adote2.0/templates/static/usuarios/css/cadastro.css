@@ -1,45 +1,108 @@
-.bg-side{
-    background-color: #391D34;
-    color: white;
-    height: 100vh;
-    
-
-}
-.header{
-    border-bottom: 1px solid white;
-    padding: 20px;
+* {
+    padding: 0px;
+    margin: 0px;
 }
 
-.body-form{
-    padding: 20px;
-}
-
-.font-logo{
-    margin-left: 10px;
-    font-size: 40px;
+body {
+    background: url("../img/pexels.jpg") no-repeat ;
+    background-size: cover;
     
 }
 
-.btn-custom-primary{
-    background-color: #3D7B80;
-    border: none;
-    box-shadow: 2px 2px 5px 1px black;
-    color: white;
-    font-size: 20px;
-    padding: 5px 20px 5px 20px;
-    border-radius: 10px;
-    margin-top: 20px;
+header{
+    margin-bottom: 30px;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    height: 11vh;
+    background-color: #ece7f0;
+    align-items: center;
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.164);
+    
+}
+
+img#img-dog-adote {
+    max-width: 300px;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    padding-top: 15px;
 
 }
 
-.link-float{
+nav li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
 
+nav a {
     text-decoration: none;
-    float: right;
-    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #0796ce;
 }
 
-.side-logo{
-    text-align: center;
-    margin-top: 60px;    
+nav a:hover {
+    color: #065e81;
+}
+
+main {
+    padding-top: 30px;
+    max-width: 650px;
+    margin: auto;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.233);
+
+}
+
+img#logo-adote{
+    display: flex;
+    width: 150px;
+    margin: auto;
+}
+
+main form {
+    max-width: 460px;
+    margin: auto;
+    padding: 30px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    
+}
+
+form ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+form div {
+    padding: 0px 0px 20px 30px;
+    
+}
+
+form a {
+    text-decoration: none;
+}
+
+input#boton-cadastro{
+    padding: 2px 7px;
+    border-radius: 10px;
+    background-color: #0dadec;
+    font-weight: bold;
+    border: 1px solid rgb(78, 76, 76);
+    color: white;
+}
+
+/* ALERTA DE ERROS*/
+
+#dados-invalidos {
+    color: rgb(245, 80, 58);
+    font-size: 0.8em;
 }
