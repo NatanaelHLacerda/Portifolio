@@ -82,9 +82,8 @@ form ul {
     justify-content: space-around;
 }
 
-form div {
-    padding: 0px 0px 20px 30px;
-    
+li input{
+    width: 150px;
 }
 
 form a {
