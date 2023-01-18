@@ -202,7 +202,15 @@ body{
         height: auto;
     }
 
-    .gender-inputs {
+    .input-group {
+        flex-direction: column;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+        max-height: 10rem;
+        padding-right: 5rem;
+    }
+
+    .gender-input {
         margin-top: 2rem;
     }
 
