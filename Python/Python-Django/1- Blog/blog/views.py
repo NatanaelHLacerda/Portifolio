@@ -18,7 +18,7 @@ def post_list(request):
         # Se a página estiver fora do intervalo,
         # exibe a útima página de resultados
         posts = paginator.page(paginator.num_pages)
-    return render(request, 'post/list.html', {'page':page, 'posts': posts})
+    return render(request, 'blog/post/list.html', {'page':page, 'posts': posts})
 
 
 def post_detail(request, year, month, day, post):
@@ -27,10 +27,10 @@ def post_detail(request, year, month, day, post):
                              publish__year=year,
                              publish__month=month,
                              publish__day=day)
-    return render(request, 'post/detail.html', {'post': post})
+    return render(request, 'blog/post/detail.html', {'post': post})
     
 class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'
     paginate_by = 3
-    template_name = 'post/list.html'
+    template_name = 'blog/post/list.html'
