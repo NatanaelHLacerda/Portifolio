@@ -4,10 +4,21 @@ from django.views.generic import ListView
 from .forms import EmailPostForm, CommentForm
 from .models import Post, Comment
 from django.core.mail import send_mail
+from taggit.models import Tag, TaggedItem
+from django.db.models import Count
 
 
-def post_list(request):
+def post_list(request, tag_slug=None):
     object_list = Post.published.all()
+    tag = None
+
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        tagged_items = TaggedItem.objects.filter(tag=tag)
+        post_ids = [ti.content_object.id for ti in tagged_items]
+        object_list = object_list.filter(id__in=post_ids)
+
+    
     paginator = Paginator(object_list, 3) # três postagens em cada página
     page = request.GET.get('page')
 
@@ -20,7 +31,9 @@ def post_list(request):
         # Se a página estiver fora do intervalo,
         # exibe a útima página de resultados
         posts = paginator.page(paginator.num_pages)
-    return render(request, 'blog/post/list.html', {'page':page, 'posts': posts})
+    return render(request, 'blog/post/list.html', {'page':page, 'posts': posts, 'tag':tag})
+    
+    
 
 
 def post_detail(request, year, month, day, post):
@@ -47,10 +60,13 @@ def post_detail(request, year, month, day, post):
             new_comment.save()
     else:
         comment_form = CommentForm()
+    # Artigos semelhantes
+    similar_posts = self.object.tags.similar_objects
     return render(request, 'blog/post/detail.html', {'post': post,
-                                                     'comments': comments,
-                                                     'new_comment': new_comment,
-                                                     'comment_form': comment_form})
+    'comments': comments,
+    'new_comment': new_comment,
+    'comment_form': comment_form,
+    'similar_posts': similar_posts})
     
 class PostListView(ListView):
     queryset = Post.published.all()
