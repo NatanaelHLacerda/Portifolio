@@ -19,6 +19,7 @@ def pesquisa(rua):
                                     'marcelo reginaldo gomes', 'maria amelia maia', 'padre antonio araujo',
                                     'rua dos beneditinos', 'rua dos salesianos', 'sao cristovao', 'rosalina rocha',
                                     'vasco da gama'],
+        
 
                     'itapoã': ['arnaldo cardoso rocha', 'av portugal', 'branca raso assuncao',
                                'carlos alberto de freitas', 'carmo do paranaiba', 'conselheiro pena',
@@ -122,4 +123,4 @@ def pesquisa(rua):
     for r, b in mapa.items():
         for nome_bairro, ruas in b.items():
             if rua in ruas:
-                return detalhes(rua, r, nome_bairro)
+                return detalhes(rua, r.title(), nome_bairro)
