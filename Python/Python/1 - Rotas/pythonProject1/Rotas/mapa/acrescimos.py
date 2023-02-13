@@ -3,8 +3,9 @@ def detalhes(rua, regiao, bairro):
     titulo = '\033[1;97m-=-=-=-=\033[m \033[1;93mLOCALIZAÇÃO DO PEDIDO\033[m \033[1;97m-=-=-=-=\033[m '
     print(titulo)
 
-    print(f'\033[1;97mRegião ->\033[m {regiao} ')
-    print(f'\033[1;97mLocalidade ->\033[m {bairro} ')
+    print(f'\033[1;94mRegião ->\033[m {regiao} ')
+    print(f'\033[1;94mLocalidade ->\033[m Bairro {bairro} ')
+    print(f'\033[1;94mLocalidades vizinha ->')
 
 
 def remover_caracteres(rua):
