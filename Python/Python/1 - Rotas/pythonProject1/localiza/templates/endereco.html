@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'localiza/css/localiza-nav.css' %}">
+    <link rel="stylesheet" href="{% static 'localiza/css/localiza-main.css' %}">
+    <link rel="stylesheet" href="{% static 'localiza/css/localiza-footer.css' %}">
+    <title>Bússola</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="#">Bússola</a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="parent">
+        <div class="child">
+            <div class="form">
+                <form action="#">
+                    <div class="image">
+                        <img src="{% static 'localiza/img/delivery.svg' %}">
+                    </div>
+                    <div class="title">
+                        <h1>Encontre uma rota</h1>
+                    </div>
+                    <div class="input-box">
+                        <label for="rua">Nome da rua:</label>
+                        <input id="rua" type="text" name="firstname" placeholder="Nome da rua" autocomplete="off">
+                    </div>
+                    <div class="button">
+                        <button><a href="#">Localizar</a></button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="tela">
+                <div class="informacoes">
+                    <div class="box-informacoes">
+                        <p> Bairro: </p>
+
+                        <p> Estrela Dalva </p>
+                    </div>
+                    <div class="box-informacoes">
+                        <p> Direção da rota: </p>
+                    </div>
+                    <div class="box-informacoes">
+                        <p> Referência: </p>
+                    </div>
+                </div>
+                <div class="fotos-mapa">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>
+            By Natanael - Dona Nicole
+        </p>
+    </footer>
+    <script src="{% static 'localiza/js/mobile-navbar.js' %}"></script>
+
+
+</body>
+</html>

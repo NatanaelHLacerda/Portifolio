@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap');
+
+footer {
+    height: 8vh;
+    background: #23232e;
+    box-shadow: 2px -2px 7px rgba(0, 0, 0, 0.425);
+    position: relative;
+    z-index: 1;
+}
+
+footer p {
+    padding-top: 15px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    margin: auto;
+}
