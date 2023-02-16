@@ -1,5 +1,5 @@
-from mapa.mapa import pesquisa
-from mapa.acrescimos import remover_caracteres
+from localizacao.mapa import pesquisa
+from localizacao.acrescimos import remover_caracteres
 
 while True:
     rua = ''

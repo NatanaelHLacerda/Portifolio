@@ -12,10 +12,9 @@ Class-based views
 
 """
 from django.contrib import admin
-from django.urls import path
-from localiza import views
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.localiza, name='localiza'),
+    path('', include('localiza.urls')),
 ]

@@ -1,16 +1,12 @@
 from django.db import models
-from Rotas.mapa import mapa
-import json
 
 # Create your models here.
 
 
-class engine(models.Model):
-    mapeamento = mapa
-    mapa_serializado = models.TextField
+class resposta2(models.Model):
+    bairro = models.CharField(max_length=50, default='default_value')
+    rua = models.CharField(max_length=50)
+    regiao = models.CharField(max_length=50)
 
-    def set_dicionario(self, mapeamento):
-        self.mapa_serializado = json.dumps(mapeamento)
-
-    def get_dicionario(self):
-        return json.loads(self.mapa_serializado)
+    def __str__(self):
+        return self.bairro

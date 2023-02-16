@@ -77,6 +77,9 @@ main .input-box input{
     border: 1px solid #787886;
     border-radius: 6px;
     box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.425);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 
@@ -94,20 +97,27 @@ main .child .tela {
   border: 1px solid #c5c5f5;
   border-radius: 10px;
   padding: 15px;
+  display: flex;
 }
 
 .tela .informacoes {
-    max-width: 100%;
-    background-color: red;
-    display: flex;
-    justify-content: space-between;
+    width: 25%;
+    min-height: 100%;
+
 }
 
-.tela .box-informacoes {
-    width: 20%;
-    background: black;
-    border-radius: yello;
-    color: white;
+.tela .box-informacao {
+    font-family: 'Inter', sans-serif;
+}
+
+.tela .box-informacao p {
+    padding-bottom: 30px;
+}
+
+.tela .mapa{
+    width:  75%;
+    border: 1px solid red;
+    border-radius: 10px;
 }
 
 
