@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'home/css/footer.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="logo" href="#">Viagem de Sabor</a>
+            <div class="mobile-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Projetos</a></li>
+                <li><a href="#">Cursos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+            <div class="video">
+                <video autoplay muted loop>
+                    <source src="{% static 'home/videos/video1.mp4' %}">
+                </video>
+            </div>
+            <div class="informativo">
+                <div class="texto-informativo">
+                    <h1>Nossas Receitas</h1>
+                    <p>Viagem de Sabor é um canal digital com centenas de horas de programação original, com séries de comida, viagem e entretenimento. Nosso conteúdo está disponível 24 horas por dia, 7 dias por semana, nas telas do seu celular, computador e TV.</p>
+                </div>
+            </div>
+            <div class="receitas-rescentes">
+                <div class="receita1"></div>
+                <div class="receita2"></div>
+                <div class="receita3"></div>
+                <div class="receita4"></div>
+                <div class="receita5"></div>
+            </div>
+            <!--  
+            <div class="container">
+                <div class="poster">
+
+                </div>
+
+                <div class="container-cadastro">
+                    <div class="cadastra-email">
+                        <div class="title-cadastra">
+                            <h1>Ganhe um estudo gratuito</h1>
+                            <p>Você já pensou na possibilidade de poder estudar em casa
+                                e desenvolver as suas habilidades culinária?
+                            </p>
+                            <p>
+                                
+                            </p>
+                        </div>
+
+                    </div>
+    
+                    <div class="image">
+                        <img src="{% static 'home/img/creme2.jpeg' %}" alt="">
+                    </div>
+                </div>
+                    
+            </div>
+            -->
+        
+    </main>
+
+    <!-- <footer><p>© Viagem de Sabor, todos os direitos reservados</p></footer> -->
+    <script src="{% static 'home/js/mobile-navbar.js' %}"></script>
+    
+</body>
+</html>
