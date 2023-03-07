@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: rgba(228, 250, 250, 0.596);
+    background-color: rgb(255, 255, 255);
 }
 
 :root {
@@ -68,10 +68,13 @@ main .informativo .texto-informativo p {
 
 /* As 5 receitas mais rescentes */
 main .receitas-rescentes {
-    height: 40vh;
+    height: 50vh;
     width: 30vw;
     width: 100%;
     display: flex;
+    justify-content: space-around;
+    background-color: white;
+    
     
 }
 
@@ -81,11 +84,72 @@ main .receitas-rescentes
 .receita3,
 .receita4,
 .receita5 {
-    min-width: 15%;
-    height: 30vh;
-    border: 1px solid red;
-    margin: auto;
+    max-width: 17%;
+    height: 50vh;
+    cursor: pointer;
+    
+    
 }
+
+main .receitas-rescentes .imagem-receita {
+    width: 100%;
+    height: 35%;
+
+
+    
+}
+
+
+main .receitas-rescentes .imagem-receita img {
+    width: 100%;
+    height: 100%;
+}
+
+main .receitas-rescentes .descricao-receita {
+    width: 100%;
+    height: 65%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+main .receitas-rescentes .descricao-receita h1 {
+    font-family: var(--font1);
+    font-weight: 500;
+    font-size: 26.5px;
+    
+}
+
+main .receitas-rescentes .descricao-receita p {
+    box-sizing: border-box;
+    width: 100%;
+    font-family: var(--font1);
+    font-size: 13.5px;
+}
+
+main .container-receitas .veja-mais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3% 0px;
+    
+
+    
+}
+
+main .container-receitas .veja-mais a{  
+    text-decoration: none;
+    color: black;
+    font-family: var(--font2);
+
+}
+
+main .container-receitas .veja-mais a:hover {
+    color: rgb(51, 49, 49);
+    text-decoration: underline;
+}
+
+
 
 .container {
     max-width: 90vw;
