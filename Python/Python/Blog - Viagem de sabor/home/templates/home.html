@@ -41,61 +41,22 @@
             </div>
             <div class="container-receitas">
                 <div class="receitas-rescentes">
-                    <div class="receita1">
-                        <div class="imagem-receita">
-                            <img src="{% static 'home/img/creme.jpeg' %}" alt="">
+                    {% for post in posts|slice:":5" %}
+                        <div class="receita">
+                            <div class="imagem-receita">
+                                <img src="{% static 'home/img/creme.jpeg' %}" alt="">
+                            </div>
+                            <div class="descricao-receita">
+                                <a href="#">
+                                    <h2>{{ post.title }}</h2>
+                                </a>
+                                <p>
+                                    {{ post.body|truncatewords:30 }}
+                                </p>
+                            </div>
                         </div>
-                        <div class="descricao-receita">
-                            <h1>Título</h1>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi voluptatem architecto officia, temporibus ea, blanditiis expedita voluptate porro ipsam maxime culpa atque obcaecati eius fugit iusto corrupti facere recusandae beatae.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="receita2">
-                        <div class="imagem-receita">
-                            <img src="{% static 'home/img/creme.jpeg' %}" alt="">
-                        </div>
-                        <div class="descricao-receita">
-                            <h1>Título</h1>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi voluptatem architecto officia, temporibus ea, blanditiis expedita voluptate porro ipsam maxime culpa atque obcaecati eius fugit iusto corrupti facere recusandae beatae.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="receita3">
-                        <div class="imagem-receita">
-                            <img src="{% static 'home/img/creme.jpeg' %}" alt="">
-                        </div>
-                        <div class="descricao-receita">
-                            <h1>Título</h1>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi voluptatem architecto officia, temporibus ea, blanditiis expedita voluptate porro ipsam maxime culpa atque obcaecati eius fugit iusto corrupti facere recusandae beatae.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="receita4">
-                        <div class="imagem-receita">
-                            <img src="{% static 'home/img/creme.jpeg' %}" alt="">
-                        </div>
-                        <div class="descricao-receita">
-                            <h1>Título</h1>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi voluptatem architecto officia, temporibus ea, blanditiis expedita voluptate porro ipsam maxime culpa atque obcaecati eius fugit iusto corrupti facere recusandae beatae.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="receita5">
-                        <div class="imagem-receita">
-                            <img src="{% static 'home/img/creme.jpeg' %}" alt="">
-                        </div>
-                        <div class="descricao-receita">
-                            <h1>Título</h1>
-                            <p>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi voluptatem architecto officia, temporibus ea, blanditiis expedita voluptate porro ipsam maxime culpa atque obcaecati eius fugit iusto corrupti facere recusandae beatae.
-                            </p>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    
                 </div>
                 <div class="veja-mais"><a href="">Veja Mais</a></div>
             </div>

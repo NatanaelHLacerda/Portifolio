@@ -78,12 +78,7 @@ main .receitas-rescentes {
     
 }
 
-main .receitas-rescentes 
-.receita1,
-.receita2,
-.receita3,
-.receita4,
-.receita5 {
+main .receitas-rescentes .receita {
     max-width: 17%;
     height: 50vh;
     cursor: pointer;

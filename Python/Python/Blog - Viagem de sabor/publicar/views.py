@@ -4,7 +4,6 @@ from .models import Post
 
 def post_list(request):
     posts = Post.objects.all()
-    return HttpResponse('tá certo')
     return render(request, 'publicar/post/list.html', {'posts': posts})
 
 
