@@ -6,4 +6,4 @@ def home(request):
     post = Post.objects.all()
 
     if request.method == "GET":
-        return render(request, 'home.html', {'posts': post})
+        return render(requst, 'home.html', {'posts': post})
